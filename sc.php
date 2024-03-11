@@ -139,7 +139,7 @@
 		</div>
 		<div class="panel panel-primary" style="margin:1% 1% 1% 1%;background: rgba(255, 251, 251, 0.7)">
 			<div class="panel-body">
-				<input type="button" class="btn btn-primary btn-block" value='查看日志' onclick=window.location.href='ck1.php'>
+				<input type="button" class="btn btn-primary btn-block" value='查看日志' onclick=window.location.href='ck_log.php'>
 			</div>
 
 		</div>
