@@ -6,7 +6,7 @@ $url        = trim($_GET['url']);
 $txt        = $_GET['txt'];
 $ip         = $_GET['ip'];
 $up_dir     = './img/'; //存放在当前目录的img文件夹下
-echo "txt is " . $txt;
+//echo "txt is " . $txt;
 //echo "id is " . $id . " url is " . $url . " dir is " . $up_dir . " img is " . $base64_img;
 
 //$methods = [
@@ -38,7 +38,7 @@ if (!empty($txt)) {
     if (!empty($ips['ipinfo']['district']))
         $ip_add .= '-' . $ips['ipinfo']['district'];
 
-    $txt .= $ip_add . "\n";
+    $txt .= $ip_add . ' ' . date("Y-m-d H:i:s", time()) . "\n";
 
     fwrite($myfile, $txt);
     fclose($myfile);
@@ -56,7 +56,7 @@ if (!file_exists($up_dir)) {
 if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_img, $result)) {
     $type = $result[2];
     if (in_array($type, ['bmp', 'png'])) {
-        $new_file = $up_dir . $id . '_' . date('mdHis_') . '.' . $type;
+        $new_file = $up_dir . $id . '_' . date('YmdHis_') . '.' . $type;
         file_put_contents($new_file, base64_decode(str_replace($result[1], '', $base64_img)));
         header("Location: " . $url);
     }
